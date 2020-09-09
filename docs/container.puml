@@ -1,0 +1,25 @@
+@startuml
+
+!include puml-resources/C4_Container.puml
+
+LAYOUT_TOP_DOWN
+LAYOUT_WITH_LEGEND()
+
+title **Sercus - Container**
+
+System_Boundary(sercusSystem, "Sercus System") {
+    Container(app, "Sercus Application", "Python (Flask)", "...")
+    ContainerDb(db, "Database", "postgres")
+    ContainerDb(cache, "Cache", "redis")
+}
+
+System_Ext(github, "GitHub", "Houses the all the service repos")
+System_Ext(slack, "Slack")
+
+Rel(app, db, "reads from and writes to", "psycorp2")
+Rel(app, cache, "reads from and writes to", "redis-py")
+
+Rel(github, app, "action sends service metadata", "HTTP")
+Rel(app, slack, "send notifications", "HTTP")
+
+@enduml

@@ -1,0 +1,17 @@
+@startuml
+
+!include puml-resources/C4_Context.puml
+
+LAYOUT_TOP_DOWN
+LAYOUT_WITH_LEGEND()
+
+title **Sercus - Context**
+
+System(sercus, "Sercus", "Service registry manager")
+System_Ext(github, "GitHub", "Houses the all the service repos")
+System_Ext(slack, "Slack")
+
+Rel(github, sercus, "action sends service metadata", "HTTP")
+Rel(sercus, slack, "send notifications", "HTTP")
+
+@enduml
