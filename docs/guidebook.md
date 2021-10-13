@@ -2,9 +2,10 @@
 
 ## Overview
 
-Required: Yes
+Sercus is a service registry manager (SRM).
+You can think of it as a CRM where you track services instead of customers.
 
-This is the elevator pitch for the software. Why does it exist, what is the gist of what it does?
+Incidentally this project has nothing to do with the French Commune by the same name.
 
 ## Context
 
@@ -21,14 +22,27 @@ Typically this is accomplished through the use of a context diagram with a suppo
 
 ## Functional Overview
 
-Required: Yes
-
-This section allows you to summarize what the key functions of the system are. It should answer the following types of questions:
-
-    • Is it clear what the system actually does?
-    • Is it clear which features, functions, use cases, user stories, etc are significant to the architecture and why?
-    • Is it clear who the important users are (roles, actors, personas, etc) and how the system caters for their needs?
-    • It is clear that the above has been used to shape and define the architecture?
+* plugins
+    * support for SSO
+    * support for service discovery via github repo config file `.sercus.yml`
+* a directory of all applications running in the ecosystem
+    * what is the current health
+    * who manages it
+    * where is the documentation (guidebook, readme, runbook, etc.)
+    * what version are we running
+    * links to monitoring dashboards
+    * links repos(s)
+    * what are the relationships between the applications (plus the ability to generate dependency graphs in the eco-system)
+* an audit log of every deployment in every environment
+    * who deployed it
+    * who wrote the change that was deployed
+    * when it happened
+    * git sha
+    * docker image sha
+    * link to the log of the actual deployment
+* the ability to “reserve” an application+environment for testing
+* reminders for when architectural and security reviews should be performed
+* queue tickets / pr’s for manual deployment
 
 ## Quality Attributes
 
@@ -278,3 +292,8 @@ A list of identified technical risks or technical debts, ordered by priority
 Required: No
 
 The most important domain and technical terms that your stakeholders use when discussing the system.
+
+## Further Reading
+
+* This approach is heavily influenced by the practices described in https://leanpub.com/visualising-software-architecture
+* Inspiration also comes from http://arc42.org/ which offers a somewhat similar approach
